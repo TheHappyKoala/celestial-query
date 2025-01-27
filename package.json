@@ -4,6 +4,7 @@
   "description": "Query the state vectors of solar system and exoplanets",
   "main": "index.js",
   "scripts": {
+    "get-state-vectors": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/TheHappyKoala/celestial-query/issues"
   },
-  "homepage": "https://github.com/TheHappyKoala/celestial-query#readme"
+  "homepage": "https://github.com/TheHappyKoala/celestial-query#readme",
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
 }
