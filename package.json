@@ -1,0 +1,25 @@
+{
+  "name": "celestial-query",
+  "version": "0.1.0",
+  "description": "Query the state vectors of solar system and exoplanets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheHappyKoala/celestial-query.git"
+  },
+  "keywords": [
+    "planet",
+    "vectors",
+    "astronomy",
+    "space"
+  ],
+  "author": "Darrell Arjuna Huffman",
+  "license": "GNU General Public License v3.0",
+  "bugs": {
+    "url": "https://github.com/TheHappyKoala/celestial-query/issues"
+  },
+  "homepage": "https://github.com/TheHappyKoala/celestial-query#readme"
+}
