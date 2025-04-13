@@ -1,0 +1,6 @@
+{
+  "*.ts": [
+    "eslint --ext .ts .",
+    "prettier --ignore-path .gitignore --write \"**/*.+(ts|json)\""
+  ]
+}
