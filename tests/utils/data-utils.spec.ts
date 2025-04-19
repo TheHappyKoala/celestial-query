@@ -3,7 +3,7 @@ import * as dataUtils from "src/utils/data-utils";
 describe("fetchData", () => {
   const mockFetchData = { data: "Some data" };
   const mockFetchUrl = "https://verydata.com";
-  const fetchSpy = jest.spyOn(global, "fetch");
+  const fetchSpy = jest.spyOn(global, "fetch") as jest.Mock;
   const fetchDataSpy = jest.spyOn(dataUtils, "fetchData");
 
   afterEach(() => {
@@ -17,7 +17,7 @@ describe("fetchData", () => {
           status: 200,
           json: () => Promise.resolve(mockFetchData),
         }),
-      ) as jest.Mock,
+      ),
     );
 
     const data = await dataUtils.fetchData<typeof mockFetchData>(mockFetchUrl);
@@ -33,7 +33,7 @@ describe("fetchData", () => {
         Promise.resolve({
           status: 204,
         }),
-      ) as jest.Mock,
+      ),
     );
 
     const data = await dataUtils.fetchData<typeof mockFetchData>(mockFetchUrl);
@@ -49,7 +49,7 @@ describe("fetchData", () => {
         Promise.resolve({
           status: 500,
         }),
-      ) as jest.Mock,
+      ),
     );
 
     await expect(
