@@ -1,7 +1,7 @@
 {
   "*.ts": [
     "eslint --ext .ts .",
-    "jest --coverage",
+    "jest --coverage --findRelatedTests",
     "prettier --ignore-path .gitignore --write \"**/*.+(ts|json)\""
   ]
 }

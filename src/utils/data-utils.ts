@@ -21,17 +21,16 @@ const assembleHorizonsApiUrl = ({
 const fetchData = async <TResponse>(url: string): Promise<TResponse | null> => {
   const response = await fetch(url);
 
-  switch (response.status) {
-    case 200:
-      return response.json();
+  if (response.status === 200) {
+    const data = await response.json();
 
-    case 204:
-      return null;
-
-    default:
-      throw new Error(
-        `The response from ${url} was not ok! Status: ${response.status}`,
-      );
+    return data;
+  } else if (response.status === 204) {
+    return null;
+  } else {
+    throw new Error(
+      `The response from ${url} was not ok! Status: ${response.status}`,
+    );
   }
 };
 
