@@ -1,4 +1,4 @@
-import { FetchSolarSystemBodiesStateVectorsArgsType } from "types/horizons";
+import { FetchSolarSystemBodyStateVectorsArgsType } from "types/horizons";
 
 const assembleHorizonsApiUrl = ({
   bodyId,
@@ -7,7 +7,7 @@ const assembleHorizonsApiUrl = ({
   stopTime,
   stepSize,
   outputUnits,
-}: FetchSolarSystemBodiesStateVectorsArgsType): string => {
+}: FetchSolarSystemBodyStateVectorsArgsType): string => {
   const baseUrl = "https://ssd.jpl.nasa.gov/api/horizons.api";
 
   const fixedQueryParams =

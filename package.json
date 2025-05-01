@@ -8,7 +8,14 @@
     "test": "jest --coverage",
     "lint": "eslint --ext .ts .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(ts|json)\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "tsc"
+  },
+  "bin": {
+    "celestial-query": "./dist/bin/index.js"
+  },
+  "_moduleAliases": {
+    "src": "dist/src"
   },
   "repository": {
     "type": "git",
@@ -42,6 +49,7 @@
     "husky": "^9.1.7",
     "jest": "^29.7.0",
     "lint-staged": "^15.5.0",
+    "module-alias": "^2.2.3",
     "prettier": "^3.5.3",
     "ts-jest": "^29.3.2",
     "ts-node": "^10.9.2",
