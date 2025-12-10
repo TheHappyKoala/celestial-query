@@ -4,7 +4,6 @@
   "description": "Query the state vectors of solar system and exoplanets",
   "main": "index.js",
   "scripts": {
-    "get-state-vectors": "ts-node -r tsconfig-paths/register src/index.ts ",
     "test": "jest --coverage",
     "lint": "eslint --ext .ts .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(ts|json)\"",
