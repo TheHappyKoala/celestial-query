@@ -9,7 +9,7 @@
     "lint": "eslint --ext .ts .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(ts|json)\"",
     "prepare": "husky",
-    "build": "tsc"
+    "build": "rm -rf dist && tsc"
   },
   "bin": {
     "celestial-query": "./dist/bin/index.js"
