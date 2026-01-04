@@ -1,6 +1,6 @@
 {
   "name": "celestial-query",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Query the state vectors of solar system and exoplanets",
   "main": "index.js",
   "scripts": {
