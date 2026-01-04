@@ -1,37 +1,44 @@
-import { assembleHorizonsApiUrl, fetchData } from "src/utils/data-utils";
-import {
-  FetchSolarSystemBodiesStateVectorsArgsType,
-  HorizonsAPIResponse,
-} from "types/horizons";
+import { fetchHorizonsApiData } from "src/utils/horizons/api-utils";
+import { FetchSolarSystemBodyStateVectorsArgsType } from "types/horizons";
+import { StateVectorsForBody } from "types/api";
+import { convertStateVectorsToJSONForBody } from "src/utils/horizons/parsing-utils";
 
-const fetchSolarSystemBodiesStateVectors = async ({
-  bodyIds,
-  center,
-  startTime,
-  stopTime,
-  stepSize,
-  outputUnits,
-}: FetchSolarSystemBodiesStateVectorsArgsType) => {
-  const bodiesArray = bodyIds.split(",");
+export const fetchSolarSystemBodyStateVectors = async (
+  queryParameters: FetchSolarSystemBodyStateVectorsArgsType,
+): Promise<StateVectorsForBody | undefined> => {
+  try {
+    const data = await fetchHorizonsApiData(queryParameters);
 
-  for (const bodyId of bodiesArray) {
-    const url = assembleHorizonsApiUrl({
-      bodyId,
-      center,
-      startTime,
-      stopTime,
-      stepSize,
-      outputUnits,
-    });
+    const stateVectors = convertStateVectorsToJSONForBody(data);
 
-    try {
-      const data = await fetchData<HorizonsAPIResponse>(url);
+    return stateVectors;
+  } catch (error) {
+    console.error(
+      `Error fetching data for body ID ${queryParameters.bodyIds}:`,
+      error,
+    );
 
-      console.log(data);
-    } catch (error) {
-      console.error(`Error fetching data for body ID ${bodyId}:`, error);
-    }
+    return undefined;
   }
 };
 
-export { fetchSolarSystemBodiesStateVectors };
+export const fetchSolarSystemBodiesStateVectors = async (
+  queryParameters: FetchSolarSystemBodyStateVectorsArgsType,
+) => {
+  const bodiesArray = queryParameters.bodyIds.split(",");
+
+  const stateVectorsArray = [];
+
+  for (const bodyId of bodiesArray) {
+    const stateVectors = await fetchSolarSystemBodyStateVectors({
+      ...queryParameters,
+      bodyIds: bodyId,
+    });
+
+    if (stateVectors) {
+      stateVectorsArray.push(stateVectors);
+    }
+  }
+
+  return stateVectorsArray;
+};
