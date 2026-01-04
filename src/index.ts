@@ -39,7 +39,7 @@ export const main = async (args: string[] = process.argv) => {
     })
     .parseSync();
 
-  await fetchSolarSystemBodiesStateVectors({
+  const stateVectors = await fetchSolarSystemBodiesStateVectors({
     bodyIds: argv.body_ids,
     center: argv.center,
     startTime: argv.start_time,
@@ -47,6 +47,8 @@ export const main = async (args: string[] = process.argv) => {
     stepSize: argv.step_size,
     outputUnits: argv.output_units,
   });
+
+  console.log(JSON.stringify(stateVectors));
 };
 
 if (require.main === module) {
