@@ -1,17 +1,10 @@
 type FetchSolarSystemBodyStateVectorsArgsType = {
-  bodyId: string;
+  bodyIds: string;
   center: string;
   startTime: string;
   stopTime: string;
   stepSize: string;
   outputUnits: string;
-};
-
-type FetchSolarSystemBodiesStateVectorsArgsType = Omit<
-  FetchSolarSystemBodyStateVectorsArgsType,
-  "bodyId"
-> & {
-  bodyIds: string;
 };
 
 type HorizonsAPIResponse = {
@@ -22,8 +15,4 @@ type HorizonsAPIResponse = {
   result: string;
 };
 
-export {
-  FetchSolarSystemBodyStateVectorsArgsType,
-  FetchSolarSystemBodiesStateVectorsArgsType,
-  HorizonsAPIResponse,
-};
+export { FetchSolarSystemBodyStateVectorsArgsType, HorizonsAPIResponse };
