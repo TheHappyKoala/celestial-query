@@ -1,5 +1,5 @@
-import * as horizons from "src/cli/horizons";
-import { fetchSolarSystemBodiesStateVectors } from "src/cli/horizons";
+import * as horizons from "src/horizons";
+import { fetchSolarSystemBodiesStateVectors } from "src/horizons";
 import * as apiUtils from "src/utils/horizons/api-utils";
 import { earthHorizonsResponse } from "tests/data/horizons";
 import * as parsingUtils from "src/utils/horizons/parsing-utils";

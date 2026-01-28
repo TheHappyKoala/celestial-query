@@ -8,8 +8,7 @@
     "lint": "eslint --ext .ts .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(ts|json)\"",
     "prepare": "husky",
-    "build": "rm -rf dist && tsc -p tsconfig.build.json",
-    "start": "ts-node -r tsconfig-paths/register src/index.ts"
+    "build": "rm -rf dist && tsc -p tsconfig.build.json"
   },
   "bin": {
     "celestial-query": "./dist/bin/index.js"
